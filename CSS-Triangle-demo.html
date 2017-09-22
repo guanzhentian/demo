@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CSS-Triangle-demo</title>
+		<meta charset="utf-8">
+		<style type="text/css">
+			.box1{
+				display: flex;
+				flex-direction: column;
+				
+			}
+			.box{
+				margin-bottom: 50px;
+				display: flex;
+				flex-direction: row;
+			}
+			.tri1{
+				width: 0;
+				height: 0;
+				border-bottom: 50px solid red;
+				border-right: 50px solid transparent;
+				border-left: 50px solid transparent;
+			}
+			.tri2{
+				width: 0;
+				height: 0;
+				border-right: 50px solid red;
+				border-top: 50px solid transparent;
+				border-bottom: 50px solid transparent;
+			}
+			.tri3{
+				width: 0;
+				height: 0;
+				border-top: 50px solid red;
+				border-right: 50px solid transparent;
+				border-left: 50px solid transparent;
+			}
+			.tri4{
+				width: 0;
+				height: 0;
+				border-left: 50px solid red;
+				border-top: 50px solid transparent;
+				border-bottom: 50px solid transparent;
+			}
+			.tri5{
+				width: 0;
+				height: 0;
+				border-left: 50px solid red;
+				border-top: 50px solid transparent;
+				border-bottom: 50px solid transparent;
+			}
+			.messageBox{
+				width: 240px;
+				height: 60px;
+				background: pink;
+				color: white;
+				position: relative;
+				padding: 30px;
+				font-size: 20px;
+				border: 5px solid #C9E9C0;
+				border-radius: 10px;
+
+			}
+			.tri{
+				position: absolute;
+				left: 20px;
+				width: 0;
+				height: 0;
+				border-width:10px;
+				border-style: solid dashed dashed dashed;
+				overflow: hidden;
+			}
+			.triBg{
+				bottom: -20px;
+				border-color: pink transparent transparent transparent;
+			}
+
+			.triBr{
+				bottom: -25px;
+				border-color: #C9E9C0 transparent transparent transparent;
+			}
+			.len{
+				font-size: 80px;
+				color: pink;
+				line-height: 80px;
+			}
+			.lenBox{
+				height: 40px;
+				width: 48px;
+				overflow: hidden;
+			}
+			.lenBox2{
+				height: 80px;
+				width: 24px;
+				overflow: hidden;
+			}
+			.lenBox3{
+				height: 80px;
+				width: 48px;
+				overflow: hidden;
+				position: relative;
+			}
+			.lenBox3Child{
+				position: absolute;
+				top: 0px;
+				height: 41px;
+				width: 100%;
+				background-color: white;
+			}
+			.lenBox4{
+				height: 80px;
+				width: 48px;
+				overflow: hidden;
+				position: relative;
+			}
+			.lenBox4Child{
+				position: absolute;
+				left: 0px;
+				height: 80px;
+				width: 50%;
+				background-color: white;
+			}
+			.box3{
+				border: 2px solid black;
+				width: 100px;
+				height: 100px;
+				float: left;
+				background-color: #ccc;
+				overflow: hidden;
+				margin: 0px;
+			}
+			.box3:hover{
+				overflow:visible;
+			}
+			.tribox{
+				width: 70.71px;
+				height: 70.71px;
+				background-color: pink;
+				margin: 0px;
+			}
+			.one{
+				transform:translateX(14.68px) translateY(64.68px) rotate(45deg);
+			}
+			.two{
+				transform:translateX(64.68px) translateY(14.68px) rotate(45deg);
+			}
+			.three{
+				transform:translateX(14.68px) translateY(-35.32px) rotate(45deg);
+			}
+			.four{
+				transform:translateX(-35.32px) translateY(14.68px) rotate(45deg);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box1">
+			<span class="item">
+				
+			</span>
+			<div class="box">
+				<h1>用纯CSS实现</h1>
+				<div class="tri1"></div>
+				<div class="tri2"></div>
+				<div class="tri3"></div>
+				<div class="tri4"></div>
+			</div>
+			<div class="box">
+				<h1>另外一种类似的方式，加边框</h1>
+				<div class="messageBox">
+					<p>哟哟这里是对话框！</p>
+					<div class="tri triBr"></div>
+					<div class="tri triBg"></div>
+				</div>
+				
+			</div>
+		</div>
+		<div class="box">
+			<h1>用◆实现</h1>
+			<div class="lenBox">
+				<span class="len">◆</span>
+			</div>
+			<div class="lenBox2">
+				<span class="len">◆</span>
+			</div>
+			<div class="lenBox3">
+				<div class="lenBox3Child"></div>
+				<div class="len">◆</div>
+			</div>
+			<div class="lenBox4">
+				<div class="lenBox4Child"></div>
+				<div class="len">◆</div>
+			</div>
+		</div>
+		<div class="box">
+			<h1>用CSS3 transform 实现</h1>
+			<div class="box3">
+				<div class="tribox one"></div>
+			</div>
+			<div class="box3">
+				<div class="tribox two"></div>
+			</div>
+			<div class="box3">
+				<div class="tribox three"></div>
+			</div>
+			<div class="box3">
+				<div class="tribox four"></div>
+			</div>
+		</div>
+	</body>
+</html>

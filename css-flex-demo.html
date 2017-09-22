@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test</title>
+	<style type="text/css">
+		.basic{
+			display: flex;
+			flex-wrap: wrap;
+			align-content: center;
+			width: 1296px;
+		}
+		.box{
+			width: 100px;
+			height: 100px;
+			background-color: white;
+			border: 1px solid black;
+			border-radius: 5px;
+			padding: 10px;
+			display: flex;
+			margin: 10px;
+		}
+		.liubai{
+			border-width: 0;
+		}
+		.item{
+			width: 30px;
+			height: 30px;
+			background-color: black;
+			border-radius: 15px;
+			margin-left: 2px;
+			margin-bottom: 2px;
+		}
+		.demo1Box{
+			justify-content: center;
+		}
+		.demo2Box{
+			justify-content: flex-end;
+		}
+		.demo3Box{
+			align-items: center;
+		}
+		.demo4Box{
+			align-items: center;
+			justify-content: center;
+		}
+		.demo5Box{
+			align-items: center;
+			justify-content: flex-end;
+		}
+		.demo6Box{
+			align-items: flex-end;
+			justify-content: ;
+		}
+		.demo7Box{
+			align-items: flex-end;
+			justify-content:center ;
+		}
+		.demo8Box{
+			align-items: flex-end;
+			justify-content:flex-end;
+		}
+		.demo9Box{
+			justify-content: space-between
+		}
+		.demo10Box{
+			flex-direction: column
+		}
+		.demo1item{
+			align-self: center
+		}
+		.demo11box{
+			flex-direction: column;
+			justify-content:space-between;
+		}
+		.demo2item{
+			align-self: flex-end;
+		}
+		.demo12box{
+			justify-content: flex-end;
+		}
+		.demo13box{
+			flex-direction: column;
+			align-items: center;
+		}
+		.demo14box{
+			flex-direction: column;
+			align-items: flex-end;
+		}
+		.demo15box{
+			flex-direction: column;
+			justify-content:space-between;
+			align-items: center;
+		}
+		.demo16box{
+			flex-direction: column;
+			justify-content:space-between;
+			align-items: flex-end;
+		}
+		.demo17box{
+			justify-content: space-between;
+			align-items: center;
+		}
+		.demo3item{
+			align-self: flex-start;
+		}
+		.demo18Box{
+			flex-direction: column;
+			align-items: flex-end;
+		}
+		.test1{
+			display: flex;
+			width: 500px;
+			height: 500px;
+		}
+		.one{
+			flex: 0 0 100px;
+			background-color: red;
+		}
+		.two{
+			flex: auto;
+			background-color: blue;
+		}
+	</style>
+</head>
+<body>
+	<div class="basic">
+		<div class="box">
+			<div class="item"></div>
+		</div>
+		<div class="box demo1Box">
+			<div class="item"></div>
+		</div>
+		<div class="box demo2Box">
+			<div class="item"></div>
+		</div>
+		<div class="box demo3Box">
+			<div class="item"></div>
+		</div>
+		<div class="box demo4Box">
+			<div class="item"></div>
+		</div>
+		<div class="box demo5Box">
+			<div class="item"></div>
+		</div>
+		<div class="box demo6Box">
+			<div class="item"></div>
+		</div>
+		<div class="box demo7Box">
+			<div class="item"></div>
+		</div>
+		<div class="box demo8Box">
+			<div class="item"></div>
+		</div>
+		<div class="box">
+			<div class="item"></div>
+			<div class="item"></div>
+		</div>
+		<div class="box demo9Box">
+			<div class="item"></div>
+			<div class="item"></div>
+		</div>
+		<div class="box demo10Box">
+			<div class="item"></div>
+			<div class="item"></div>
+		</div>
+		<div class="box ">
+			<div class="item"></div>
+			<div class="item demo1item"></div>
+		</div>
+		<div class="box demo9Box">
+			<div class="item"></div>
+			<div class="item demo1item"></div>
+		</div>
+		<div class="box demo11box">
+			<div class="item"></div>
+			<div class="item"></div>
+		</div>
+		<div class="box ">
+			<div class="item"></div>
+			<div class="item demo2item"></div>
+		</div>
+		<div class="box demo9Box">
+			<div class="item"></div>
+			<div class="item demo2item"></div>
+		</div>
+		<div class="box liubai">
+			
+		</div>
+		<div class="box demo12box">
+			<div class="item"></div>
+			<div class="item"></div>
+		</div>
+		<div class="box">
+			<div class="item demo1item"></div>
+			<div class="item"></div>
+		</div>
+		<div class="box demo13box">
+			<div class="item"></div>
+			<div class="item"></div>
+		</div>
+		<div class="box demo13box">
+			<div class="item"></div>
+			<div class="item demo2item"></div>
+		</div>
+		<div class="box demo11box">
+			<div class="item demo1item"></div>
+			<div class="item "></div>
+		</div>
+		<div class="box demo15box">
+			<div class="item "></div>
+			<div class="item "></div>
+		</div>
+		<div class="box demo15box">
+			<div class="item "></div>	
+			<div class="item demo2item"></div>
+		</div>
+		<div class="box liubai">
+			
+		</div>
+		<div class="box liubai">
+			
+		</div>
+		<div class="box demo17box">
+			<div class="item "></div>	
+			<div class="item demo3item"></div>
+		</div>
+		<div class="box demo12box">
+			<div class="item demo1item"></div>
+			<div class="item"></div>
+		</div>
+		<div class="box demo18Box">
+			<div class="item"></div>
+			<div class="item"></div>
+		</div>
+	</div>
+	<div class="test1">
+		<div class="one">Mother Fuck</div>
+		<div class="two"></div>
+	</div>	
+</body>
+</html>
