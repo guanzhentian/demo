@@ -3,10 +3,620 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+
 </head>
 <body>
+	<canvas width="1000" height="800" id="canvas"></canvas>
+	<div>
+		<button id="x2">x^2</button>
+		<button id="x22">-x^2</button>
+		<button id="x222">+-x^2</button>
+		<button id="torgether2">torgether-2</button>	
+	</div>
+	<div>
+		<button id="x3">x^3</button>
+		<button id="x33">-x^3</button>
+		<button id="x333">+-x^3</button>
+		<button id="torgether3">torgether-3</button>	
+	</div>
+	<div>
+		<button id="x4">x^4</button>
+		<button id="x44">-x^4</button>
+		<button id="x444">+-x^4</button>
+		<button id="torgether4">torgether-4</button>	
+	</div>
+	<div>
+		<button id="x5">x^5</button>
+		<button id="x55">-x^5</button>
+		<button id="x555">+-x^5</button>
+		<button id="torgether5">torgether-5</button>	
+	</div>
+	<div>
+		<button id="torgetherAll2">ALl2</button>
+		<button id="torgetherAll3">ALL3</button>
+		<button id="torgetherAll4">ALL4</button>
+		<button id="torgetherAll5">Alltorgether</button>
+		<button id="refresh">刷新</button>	
+	</div>
 	<script type="text/javascript">
-		window.location.replace("http://192.168.0.199:8080"); 
+		function drawXy(ctx){
+			ctx.strokeStyle="#000"
+			ctx.beginPath();
+			ctx.moveTo(0,800);
+			ctx.lineTo(1000,800);
+			ctx.stroke();
+			ctx.closePath();
+			ctx.beginPath();
+			ctx.moveTo(0,0);
+			ctx.lineTo(0,800);
+			ctx.stroke();
+			ctx.closePath();
+		}
+		// -----------------2
+		function drawX2(ctx,D,T,s,t,last){
+			t = t|| 0;
+
+
+			last = last || {
+				x:0,
+				y:800
+			}
+
+
+			t += 20;
+
+			var newY = 800 - (D/(T*T))*t*t/1000/1000;
+			var newX = last.x+2;
+
+			ctx.strokeStyle ="#90CAF9";
+			ctx.beginPath();
+			ctx.moveTo(last.x,last.y);
+			ctx.lineTo(newX,newY);
+			ctx.stroke();
+			ctx.closePath();
+
+			if(t == T*1000)
+			{
+				console.log("drawX2 end");
+				return
+			}
+
+			last.x = newX;
+			last.y = newY;
+
+			setTimeout(()=>{drawX2(ctx,D,T,s,t,last)},20);
+
+			return;
+		}
+
+		function drawX22(ctx,D,T,s,t,last){
+			t = t|| 0;;
+
+			last = last || {
+				x:0,
+				y:800
+			}
+
+			t += 20;
+
+			var newY = 800 - (-1*(D/(T*T))*(t/1000 - T)*(t/1000 - T) + D);
+			var newX = last.x+2;
+
+			ctx.strokeStyle ="#0D47A1";
+			ctx.beginPath();
+			ctx.moveTo(last.x,last.y);
+			ctx.lineTo(newX,newY);
+			ctx.stroke();
+			ctx.closePath();
+
+			if(t == T*1000)
+			{
+				console.log("drawX22 end");
+				return
+			}
+
+			last.x = newX;
+			last.y = newY;
+
+			setTimeout(()=>{drawX22(ctx,D,T,s,t,last)},20);
+
+			return;
+		}
+
+		function drawX222(ctx,D,T,s,t,last){
+			t = t|| 0;
+
+			last = last || {
+				x:0,
+				y:800
+			}
+
+
+			t += 20;
+
+			if(t < T*500)
+			{
+				var newY = 800 - ((D/2)/(T/2*T/2))*t*t/1000/1000;
+				var newX = last.x+2;
+			}else{
+				var newY = 400 - (-1*(D/2/(T/2*T/2))*((t/1000-T*0.5) - T/2)*((t/1000-T*0.5) - T/2) + D/2);
+				var newX = last.x+2;
+			}
+
+			
+
+			ctx.strokeStyle ="#2196F3";
+			ctx.beginPath();
+			ctx.moveTo(last.x,last.y);
+			ctx.lineTo(newX,newY);
+			ctx.stroke();
+			ctx.closePath();
+
+			if(t == T*1000)
+			{
+				console.log("drawX22 end");
+				return
+			}
+
+			last.x = newX;
+			last.y = newY;
+
+			setTimeout(()=>{drawX222(ctx,D,T,s,t,last)},20);
+
+			return;
+		}
+
+		//-----------------------3
+		function drawX3(ctx,D,T,s,t,last){
+			t = t|| 0;
+
+
+			last = last || {
+				x:0,
+				y:800
+			}
+
+
+			t += 20;
+
+			var newY = 800 - (D/Math.pow(T,3))*Math.pow(t/1000,3);
+			var newX = last.x+2;
+
+			ctx.strokeStyle ="#EF9A9A";
+			ctx.beginPath();
+			ctx.moveTo(last.x,last.y);
+			ctx.lineTo(newX,newY);
+			ctx.stroke();
+			ctx.closePath();
+
+			if(t == T*1000)
+			{
+				console.log("drawX3 end");
+				return
+			}
+
+			last.x = newX;
+			last.y = newY;
+
+			setTimeout(()=>{drawX3(ctx,D,T,s,t,last)},20);
+
+			return;
+		}
+		function drawX33(ctx,D,T,s,t,last){
+			t = t|| 0;;
+
+			last = last || {
+				x:0,
+				y:800
+			}
+
+			t += 20;
+
+			var newY = 800 - (1*(D/Math.pow(T,3))*Math.pow((t/1000 - T),3)+ D);
+			var newX = last.x+2;
+
+			ctx.strokeStyle ="#B71C1C";
+			ctx.beginPath();
+			ctx.moveTo(last.x,last.y);
+			ctx.lineTo(newX,newY);
+			ctx.stroke();
+			ctx.closePath();
+
+			if(t == T*1000)
+			{
+				console.log("drawX33 end");
+				return
+			}
+
+			last.x = newX;
+			last.y = newY;
+
+			setTimeout(()=>{drawX33(ctx,D,T,s,t,last)},20);
+
+			return;
+		}
+		function drawX333(ctx,D,T,s,t,last){
+			t = t|| 0;
+
+			last = last || {
+				x:0,
+				y:800
+			}
+
+
+			t += 20;
+
+			if(t < T*500)
+			{				
+				var newY = 800 - ((D/2)/Math.pow(T/2,3))*Math.pow(t/1000,3);
+				var newX = last.x+2;
+			}else{					
+				var newY = 400 - (1*((D/2)/Math.pow(T/2,3))*Math.pow(((t/1000-T*0.5) - T/2),3)+ D/2);
+				var newX = last.x+2;
+			}
+
+			ctx.strokeStyle ="#F44336";
+			ctx.beginPath();
+			ctx.moveTo(last.x,last.y);
+			ctx.lineTo(newX,newY);
+			ctx.stroke();
+			ctx.closePath();
+
+			if(t == T*1000)
+			{
+				console.log("drawX333 end");
+				return
+			}
+
+			last.x = newX;
+			last.y = newY;
+
+			setTimeout(()=>{drawX333(ctx,D,T,s,t,last)},20);
+
+			return;
+		}
+
+
+		//-------------------------4
+		function drawX4(ctx,D,T,s,t,last){
+			t = t|| 0;
+
+
+			last = last || {
+				x:0,
+				y:800
+			}
+
+
+			t += 20;
+
+			var newY = 800 - (D/Math.pow(T,4))*Math.pow(t/1000,4);
+			var newX = last.x+2;
+
+			ctx.strokeStyle ="#C5E1A5";
+			ctx.beginPath();
+			ctx.moveTo(last.x,last.y);
+			ctx.lineTo(newX,newY);
+			ctx.stroke();
+			ctx.closePath();
+
+			if(t == T*1000)
+			{
+				console.log("drawX4 end");
+				return
+			}
+
+			last.x = newX;
+			last.y = newY;
+
+			setTimeout(()=>{drawX4(ctx,D,T,s,t,last)},20);
+
+			return;
+		}
+		function drawX44(ctx,D,T,s,t,last){
+			t = t|| 0;;
+
+			last = last || {
+				x:0,
+				y:800
+			}
+
+			t += 20;
+
+			var newY = 800 - (-1*(D/Math.pow(T,4))*Math.pow((t/1000 - T),4)+ D);
+			var newX = last.x+2;
+
+			ctx.strokeStyle ="#33691E";
+			ctx.beginPath();
+			ctx.moveTo(last.x,last.y);
+			ctx.lineTo(newX,newY);
+			ctx.stroke();
+			ctx.closePath();
+
+			if(t == T*1000)
+			{
+				console.log("drawX44 end");
+				return
+			}
+
+			last.x = newX;
+			last.y = newY;
+
+			setTimeout(()=>{drawX44(ctx,D,T,s,t,last)},20);
+
+			return;
+		}
+		function drawX444(ctx,D,T,s,t,last){
+			t = t|| 0;
+
+			last = last || {
+				x:0,
+				y:800
+			}
+
+
+			t += 20;
+
+			if(t < T*500)
+			{				
+				var newY = 800 - ((D/2)/Math.pow(T/2,4))*Math.pow(t/1000,4);
+				var newX = last.x+2;
+			}else{					
+				var newY = 400 - (-1*((D/2)/Math.pow(T/2,4))*Math.pow(((t/1000-T*0.5) - T/2),4)+ D/2);
+				var newX = last.x+2;
+			}
+
+			ctx.strokeStyle ="#8BC34A";
+			ctx.beginPath();
+			ctx.moveTo(last.x,last.y);
+			ctx.lineTo(newX,newY);
+			ctx.stroke();
+			ctx.closePath();
+
+			if(t == T*1000)
+			{
+				console.log("drawX444 end");
+				return
+			}
+
+			last.x = newX;
+			last.y = newY;
+
+			setTimeout(()=>{drawX444(ctx,D,T,s,t,last)},20);
+
+			return;
+		}
+
+		//-----------------------5
+		function drawX5(ctx,D,T,s,t,last){
+			t = t|| 0;
+
+
+			last = last || {
+				x:0,
+				y:800
+			}
+
+
+			t += 20;
+
+			var newY = 800 - (D/Math.pow(T,5))*Math.pow(t/1000,5);
+			var newX = last.x+2;
+
+			ctx.strokeStyle ="#FFF59D";
+			ctx.beginPath();
+			ctx.moveTo(last.x,last.y);
+			ctx.lineTo(newX,newY);
+			ctx.stroke();
+			ctx.closePath();
+
+			if(t == T*1000)
+			{
+				console.log("drawX5 end");
+				return
+			}
+
+			last.x = newX;
+			last.y = newY;
+
+			setTimeout(()=>{drawX5(ctx,D,T,s,t,last)},20);
+
+			return;
+		}
+		function drawX55(ctx,D,T,s,t,last){
+			t = t|| 0;;
+
+			last = last || {
+				x:0,
+				y:800
+			}
+
+			t += 20;
+
+			var newY = 800 - (1*(D/Math.pow(T,5))*Math.pow((t/1000 - T),5)+ D);
+			var newX = last.x+2;
+
+			ctx.strokeStyle ="#F57F17";
+			ctx.beginPath();
+			ctx.moveTo(last.x,last.y);
+			ctx.lineTo(newX,newY);
+			ctx.stroke();
+			ctx.closePath();
+
+			if(t == T*1000)
+			{
+				console.log("drawX55 end");
+				return
+			}
+
+			last.x = newX;
+			last.y = newY;
+
+			setTimeout(()=>{drawX55(ctx,D,T,s,t,last)},20);
+
+			return;
+		}
+		function drawX555(ctx,D,T,s,t,last){
+			t = t|| 0;
+
+			last = last || {
+				x:0,
+				y:800
+			}
+
+
+			t += 20;
+
+			if(t < T*500)
+			{				
+				var newY = 800 - ((D/2)/Math.pow(T/2,5))*Math.pow(t/1000,5);
+				var newX = last.x+2;
+			}else{					
+				var newY = 400 - (1*((D/2)/Math.pow(T/2,5))*Math.pow(((t/1000-T*0.5) - T/2),5)+ D/2);
+				var newX = last.x+2;
+			}
+
+			ctx.strokeStyle ="#FFEB3B";
+			ctx.beginPath();
+			ctx.moveTo(last.x,last.y);
+			ctx.lineTo(newX,newY);
+			ctx.stroke();
+			ctx.closePath();
+
+			if(t == T*1000)
+			{
+				console.log("drawX555 end");
+				return
+			}
+
+			last.x = newX;
+			last.y = newY;
+
+			setTimeout(()=>{drawX555(ctx,D,T,s,t,last)},20);
+
+			return;
+		}
+		window.onload = function(){
+			var canvas = document.getElementById("canvas");
+			var ctx=canvas.getContext("2d");
+			drawXy(ctx);
+
+			document.getElementById("refresh").addEventListener("click",()=>{
+				ctx.clearRect(0,0,1000,800);
+				drawXy(ctx);
+			});
+
+			//-----------------torgether
+
+			document.getElementById("torgether2").addEventListener("click",()=>{
+				drawX2(ctx,800,10,0);
+				drawX22(ctx,800,10,0);
+				drawX222(ctx,800,10,0);
+			});
+			document.getElementById("torgether3").addEventListener("click",()=>{
+				drawX3(ctx,800,10,0);
+				drawX33(ctx,800,10,0);
+				drawX333(ctx,800,10,0);
+			});
+			document.getElementById("torgether4").addEventListener("click",()=>{
+				drawX4(ctx,800,10,0);
+				drawX44(ctx,800,10,0);
+				drawX444(ctx,800,10,0);
+			});
+			document.getElementById("torgether5").addEventListener("click",()=>{
+				drawX5(ctx,800,10,0);
+				drawX55(ctx,800,10,0);
+				drawX555(ctx,800,10,0);
+			});
+
+			//-----------------all
+
+			document.getElementById("torgetherAll2").addEventListener("click",()=>{
+				drawX2(ctx,800,10,0);
+				drawX3(ctx,800,10,0);
+				drawX4(ctx,800,10,0);
+				drawX5(ctx,800,10,0);
+			});
+			document.getElementById("torgetherAll3").addEventListener("click",()=>{
+				drawX22(ctx,800,10,0);
+				drawX33(ctx,800,10,0);
+				drawX44(ctx,800,10,0);
+				drawX55(ctx,800,10,0);
+			});
+			document.getElementById("torgetherAll4").addEventListener("click",()=>{
+				drawX222(ctx,800,10,0);
+				drawX333(ctx,800,10,0);
+				drawX444(ctx,800,10,0);
+				drawX555(ctx,800,10,0);
+			});
+			document.getElementById("torgetherAll5").addEventListener("click",()=>{
+				drawX2(ctx,800,10,0);
+				drawX3(ctx,800,10,0);
+				drawX4(ctx,800,10,0);
+				drawX5(ctx,800,10,0);
+
+
+				drawX22(ctx,800,10,0);
+				drawX33(ctx,800,10,0);
+				drawX44(ctx,800,10,0);
+				drawX55(ctx,800,10,0);
+
+				drawX222(ctx,800,10,0);
+				drawX333(ctx,800,10,0);
+				drawX444(ctx,800,10,0);
+				drawX555(ctx,800,10,0);
+			});
+			//---------------2
+			document.getElementById("x2").addEventListener("click", ()=>{
+				//ctx.clearRect(0,0,1000,800)
+				drawX2(ctx,800,10,0);
+			});
+
+			document.getElementById("x22").addEventListener("click", ()=>{
+				//ctx.clearRect(0,0,1000,800)
+				drawX22(ctx,800,10,0);
+			});
+			document.getElementById("x222").addEventListener("click", ()=>{
+				//ctx.clearRect(0,0,1000,800)
+				drawX222(ctx,800,10,0);
+			});
+
+			//-----------------3 
+			document.getElementById("x3").addEventListener("click", ()=>{
+				drawX3(ctx,800,10,0);
+			});
+
+			document.getElementById("x33").addEventListener("click", ()=>{
+				drawX33(ctx,800,10,0);
+			});
+			document.getElementById("x333").addEventListener("click", ()=>{
+				drawX333(ctx,800,10,0);
+			});
+
+			//---------------------4
+			document.getElementById("x4").addEventListener("click", ()=>{
+				drawX4(ctx,800,10,0);
+			});
+
+			document.getElementById("x44").addEventListener("click", ()=>{
+				drawX44(ctx,800,10,0);
+			});
+			document.getElementById("x444").addEventListener("click", ()=>{
+				drawX444(ctx,800,10,0);
+			});
+
+			//---------------------5
+			document.getElementById("x5").addEventListener("click", ()=>{
+				drawX5(ctx,800,10,0);
+			});
+
+			document.getElementById("x55").addEventListener("click", ()=>{
+				drawX55(ctx,800,10,0);
+			});
+			document.getElementById("x555").addEventListener("click", ()=>{
+				drawX555(ctx,800,10,0);
+			});
+		}
 	</script>
 </body>
 </html>
